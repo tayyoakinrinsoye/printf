@@ -3,5 +3,5 @@
 
 int _putchar(char c);
 int _printf(const char * const format, ...);
-
+int _printnum(int arg);
 #endif
