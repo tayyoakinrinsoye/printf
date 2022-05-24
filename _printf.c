@@ -6,11 +6,13 @@
 int _printf(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, k, num;
+	int i = 0, j = 0, num = 0;
 	int display = 0;
 	char *str = NULL;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 
 	while (format[i] != '\0')
 	{
@@ -26,18 +28,17 @@ int _printf(const char * const format, ...)
 			{
 				_putchar(va_arg(args, int));
 				display++;
-			i++;
+				i++;
 			}
 			else if (format[i + 1] == 's')
 			{
 				i++;
 				str = va_arg(args, char *);
-				k = 0;
-				while (str[k] != '\0')
+				while (str[j] != '\0')
 				{
-					_putchar(str[k]);
+					_putchar(str[j]);
 					display++;
-					k++;
+					j++;
 				}
 			}
 			else if (format[i + 1] == '%')
@@ -47,14 +48,25 @@ int _printf(const char * const format, ...)
 				display++;
 			}
 			else if (format[i + 1] == 'd')
-			{	i++;
+			{
+				i++;
 				num = va_arg(args, int);
+				_printnum(num);
+				display++;
+			}
+			else if (format[i + 1] == 'i')
+			{	
+				i++;
+				num = va_arg(args, int);
+				_printnum(num);
+				display++;
 
 			}
-		}
-		i++;
-	}
 
+		}
+		i++;	
+	}
+	
 	va_end(args);
 	return (display);
 }
