@@ -16,7 +16,7 @@ int _putchar(char c)
 /**
  *_strlen - reset number
  *Description: This function return a length for some string
- *@s: pointer char
+ *@str: pointer char
  *Return: int length
  */
 int _strlen(char *str)
@@ -48,8 +48,8 @@ void _puts(char *str)
  *convert_to - convert numbers
  *Description: This function convert numbers to other formats
  *decimal, octal, hexadecimal, binary etc..
- *@representation: char representation[] = "0123456789ABCDEF";
- *@num: num to tranasform
+ *@rep: char representation[] = "0123456789ABCDEF";
+ *@number: num to tranasform
  *@base: base to transform num
  *Return: number into char pointer
  */
@@ -63,7 +63,7 @@ char *convert_to(char rep[], unsigned int number, int base)
 	*ptr = '\0';
 
 	do {
-		mod = number % base;
+		mode = number % base;
 		*--ptr = rep[mode];
 		number /= base;
 	} while (number != 0);

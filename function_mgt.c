@@ -15,7 +15,7 @@ int function_manager(char c, va_list arg)
 	count = _switch(c, arg);
 	if (c == 'p')
 		count = print_ptr(arg);
-	return (cont);
+	return (count);
 }
 /**
  *_switch - switch
@@ -33,9 +33,9 @@ int _switch(char c, va_list arg)
 		case 'b':
 			count += print_unsign(arg, 2);
 			break;
-		case 'c':
+	/*	case 'c':
 			count += print_character(arg);
-			break;
+			break;*/
 		case 'd':
 		case 'i':
 			count += print_sign(arg, 10);
